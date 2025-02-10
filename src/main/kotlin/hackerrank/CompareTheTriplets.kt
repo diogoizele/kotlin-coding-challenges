@@ -19,21 +19,12 @@ fun compareTriplets(a: Array<Int>, b: Array<Int>): Array<Int> {
         return arrayOf(0, 0)
     }
 
-    var aScore = 0
-    var bScore = 0
-
-    for (i in a.indices) {
-        val aElement = a[i]
-        val bElement = b[i]
-
-        if (aElement == bElement) {
-            continue
-        } else if (aElement > bElement) {
-            aScore++
-        } else {
-            bScore++
+    return a.foldIndexed(mutableListOf(0 , 0)) { index, accumulator, element ->
+        if (element > b[index]) {
+            accumulator[0]++
+        } else if (element < b[index]) {
+            accumulator[1]++
         }
-    }
-
-    return arrayOf(aScore, bScore)
+        accumulator
+    }.toTypedArray()
 }
