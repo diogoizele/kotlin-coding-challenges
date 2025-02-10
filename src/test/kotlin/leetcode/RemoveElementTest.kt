@@ -1,3 +1,5 @@
+package leetcode
+
 import com.diogoizele.leetcode.Solution
 
 import org.junit.jupiter.api.Test
